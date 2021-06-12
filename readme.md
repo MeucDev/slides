@@ -11,6 +11,7 @@
 
 - Run `npm install` and `npm run start` in the `/api` folder of the project
   - Alternatively, `npm run start:dev` has the "watch" feature to schek for changed files
+- Access the Swagger documentation by going to the `/api` URL
 
 ## App
 
