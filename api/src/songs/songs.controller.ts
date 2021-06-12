@@ -1,8 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { DeleteResult } from 'typeorm';
 import { Song } from './song.entity';
 import { SongsService } from './songs.service';
 
+@ApiTags('songs')
 @Controller('songs')
 export class SongsController {
   constructor(private service: SongsService) { }
