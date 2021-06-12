@@ -20,7 +20,7 @@ services:
             POSTGRES_DB: '${DATABASE_NAME}'
             POSTGRES_USER: '${DATABASE_USERNAME}'
             POSTGRES_PASSWORD: '${DATABASE_PASSWORD}'
-            PG_TRUST_LOCALNET: true
+            PG_TRUST_LOCALNET: 1
         volumes:
             - 'pgVol:/var/lib/postgresql/data'
         networks:
