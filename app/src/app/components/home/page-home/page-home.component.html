@@ -1,0 +1,19 @@
+<top-menu></top-menu>
+
+<div class="container">
+  <h3 class="mb-3">{{ 'home.title' | translate }}</h3>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ 'songs.title' | translate }}</h5>
+          <p class="card-text">{{ 'songs.description' | translate }}</p>
+        </div>
+        <div class="card-footer">
+          <a [routerLink]="['/songs']">{{ 'actions.manage' | translate }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

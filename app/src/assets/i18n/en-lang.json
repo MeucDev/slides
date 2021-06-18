@@ -1,0 +1,19 @@
+{
+  "app-title": "Slides",
+  "actions": {
+    "add": "Add",
+    "edit": "Edit",
+    "remove": "Remove",
+    "manage": "Manage",
+    "save": "Save",
+    "cancel": "Cancel",
+    "search": "Search"
+  },
+  "home": {
+    "title": "Home"
+  },
+  "songs": {
+    "title": "Songs",
+    "description": "Add, edit and remove lyrics, chords and other details about the songs."
+  }
+}
