@@ -5,5 +5,6 @@ export enum VerseType {
   Interlude = 'Interlude',
   Solo = 'Solo',
   Bridge = 'Bridge',
-  Outro = 'Outro'
+  Outro = 'Outro',
+  Unknown = ''
 }

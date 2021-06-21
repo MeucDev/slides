@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, OneToMany } from 'typeorm';
-import { Verse } from './verse.entity';
+import { SongVerse } from './song-verse.entity';
 
 @Entity('songs')
 export class Song {
@@ -18,6 +18,6 @@ export class Song {
   @UpdateDateColumn()
   dateUpdated: Date;
 
-  @OneToMany(() => Verse, verse => verse.song, { cascade: [ 'insert' ] })
-  verses: Verse[];
+  @OneToMany(() => SongVerse, songVerse => songVerse.song, { cascade: [ 'insert', 'update', 'remove' ] })
+  songVerses: SongVerse[];
 }
