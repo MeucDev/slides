@@ -1,0 +1,16 @@
+.toolbar {
+  .group {
+    display: inline-block;
+
+    p-button + p-button,
+    p-button + p-splitbutton,
+    p-splitbutton + p-button,
+    p-splitbutton + p-splitbutton {
+      margin-left: 4px;
+    }
+
+    & + .group {
+      margin-left: 12px;
+    }
+  }
+}

@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+
 import { appRoutes, pagesComponents } from './app.routes';
 import { AppComponent } from './app.component';
 import { TopMenuComponent } from './components/home/top-menu/top-menu.component';
@@ -37,6 +40,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [ HttpClient ]
       }
     }),
+    TableModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
