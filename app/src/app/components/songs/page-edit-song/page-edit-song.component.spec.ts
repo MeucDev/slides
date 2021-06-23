@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { PageSongsComponent } from './page-songs.component';
+import { PageEditSongComponent } from './page-edit-song.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateLoaderMock } from 'src/app/testing/translate-loader-mock';
 
-describe('PageSongsComponent', () => {
-  let component: PageSongsComponent;
-  let fixture: ComponentFixture<PageSongsComponent>;
+describe('PageEditSongComponent', () => {
+  let component: PageEditSongComponent;
+  let fixture: ComponentFixture<PageEditSongComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -17,13 +17,13 @@ describe('PageSongsComponent', () => {
           },
         })
       ],
-      declarations: [ PageSongsComponent ]
+      declarations: [ PageEditSongComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageSongsComponent);
+    fixture = TestBed.createComponent(PageEditSongComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

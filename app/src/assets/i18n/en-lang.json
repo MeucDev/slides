@@ -14,6 +14,10 @@
   },
   "songs": {
     "title": "Songs",
-    "description": "Add, edit and remove lyrics, chords and other details about the songs."
+    "description": "Add, edit and remove lyrics, chords and other details about the songs.",
+    "fields": {
+      "title": "Title",
+      "songwriter": "Songwriter"
+    }
   }
 }

@@ -11,7 +11,7 @@ export class Song {
   title: string;
 
   @Column({ type: 'varchar', length: 240, nullable: true })
-  songWriter: string;
+  songwriter: string;
 
   @CreateDateColumn()
   dateCreated: Date;

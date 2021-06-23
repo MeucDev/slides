@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -40,6 +41,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [ HttpClient ]
       }
     }),
+    FormsModule,
     TableModule,
     ButtonModule,
   ],

@@ -2,9 +2,9 @@
   .group {
     display: inline-block;
 
-    p-button + p-button,
-    p-button + p-splitbutton,
-    p-splitbutton + p-button,
+    button + button,
+    button + p-splitbutton,
+    p-splitbutton + button,
     p-splitbutton + p-splitbutton {
       margin-left: 4px;
     }
