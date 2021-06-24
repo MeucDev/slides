@@ -33,7 +33,7 @@ export class Verse {
 
   @ManyToOne(() => Song, song => song.verses, { nullable: false })
   @JoinColumn({ name: 'songId' })
-  song: Song[];
+  song: Song;
 
   @OneToMany(() => SongVerse, songVerse => songVerse.verse, { nullable: false })
   songVerses: SongVerse[];

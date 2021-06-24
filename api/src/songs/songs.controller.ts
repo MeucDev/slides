@@ -1,6 +1,6 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { DeleteResult } from 'typeorm';
+import { DeleteResult, UpdateResult } from 'typeorm';
 import { Song } from './song.entity';
 import { SongsService } from './songs.service';
 
@@ -22,6 +22,11 @@ export class SongsController {
   @Post()
   async save(@Body() song: Song): Promise<Song> {
     return this.service.save(song);
+  }
+
+  @Put(':id')
+  async update(@Param('id') id: number, @Body() song: Song): Promise<UpdateResult> {
+    return this.service.update(id, song);
   }
 
   @Delete(':id')

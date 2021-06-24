@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeleteResult, Repository } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { Song } from './song.entity';
 
 @Injectable()
@@ -21,6 +21,14 @@ export class SongsService {
   async save(song: Song): Promise<Song> {
     let newSong = this.songsRepository.create(song);
     return this.songsRepository.save(newSong);
+  }
+
+  async update(id: number, song: Song): Promise<UpdateResult> {
+    // TODO: Update other properties
+    return this.songsRepository.update(id, {
+      title: song.title,
+      songwriter: song.songwriter
+    });
   }
 
   async delete(id: number): Promise<DeleteResult> {

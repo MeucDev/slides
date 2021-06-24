@@ -26,4 +26,8 @@ export class PageSongsComponent implements OnInit {
   handleAdd() {
     this.router.navigate(['/songs', 'add']);
   }
+
+  handleEdit(id: number) {
+    this.router.navigate(['/songs', id]);
+  }
 }

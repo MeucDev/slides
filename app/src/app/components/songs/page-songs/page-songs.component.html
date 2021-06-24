@@ -20,8 +20,8 @@
     <ng-template pTemplate="body" let-item>
       <tr>
         <td>{{item.title}}</td>
-        <td>{{item.songWriter}}</td>
-        <td>Edit button</td>
+        <td>{{item.songwriter}}</td>
+        <td><button pButton icon="pi pi-pencil" [title]="'actions.edit' | translate" class="p-button-warning p-button-sm" (click)="handleEdit(item.id)"></button></td>
       </tr>
     </ng-template>
   </p-table>

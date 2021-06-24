@@ -3,7 +3,7 @@
 <div class="container">
   <h3 class="mb-3">{{ 'songs.title' | translate }}</h3>
 
-  <form #songForm="ngForm" (ngSubmit)="handleSave()">
+  <form #songForm="ngForm" (ngSubmit)="handleSave()" class="needs-validation" [class.was-validated]="validated">
     <div class="toolbar mb-2" role="toolbar">
       <div class="group">
         <button pButton icon="pi pi-chevron-left" iconPos="left" [label]="'actions.cancel' | translate" class="p-button-secondary p-button-sm" (click)="handleCancel()"></button>
@@ -17,8 +17,8 @@
         <input pInputText type="text" class="form-control" id="title" name="title" #title="ngModel" [(ngModel)]="song.title" required />
       </div>
       <div class="col-md-6 p-field">
-        <label for="songWriter" [title]="'songs.fields.songwriter' | translate">{{ 'songs.fields.songwriter' | translate }}</label>
-        <input pInputText type="text" class="form-control" id="songWriter" name="songWriter" #songWriter="ngModel" [(ngModel)]="song.songwriter">
+        <label for="songwriter" [title]="'songs.fields.songwriter' | translate">{{ 'songs.fields.songwriter' | translate }}</label>
+        <input pInputText type="text" class="form-control" id="songwriter" name="songwriter" #songwriter="ngModel" [(ngModel)]="song.songwriter">
       </div>
     </div>
   </form>
