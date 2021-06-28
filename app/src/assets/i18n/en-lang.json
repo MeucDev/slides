@@ -15,6 +15,11 @@
   "songs": {
     "title": "Songs",
     "description": "Add, edit and remove lyrics, chords and other details about the songs.",
+    "tabs": {
+      "content": "Content",
+      "verses": "Verses",
+      "chords": "Chords"
+    },
     "fields": {
       "title": "Title",
       "songwriter": "Songwriter"

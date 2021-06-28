@@ -4,22 +4,46 @@
   <h3 class="mb-3">{{ 'songs.title' | translate }}</h3>
 
   <form #songForm="ngForm" (ngSubmit)="handleSave()" class="needs-validation" [class.was-validated]="validated">
-    <div class="toolbar mb-2" role="toolbar">
-      <div class="group">
-        <button pButton icon="pi pi-chevron-left" iconPos="left" [label]="'actions.cancel' | translate" class="p-button-secondary p-button-sm" (click)="handleCancel()"></button>
-        <button pButton icon="pi pi-check" iconPos="left" [label]="'actions.save' | translate" class="p-button-success p-button-sm" (click)="handleSave()"></button>
-      </div>
-    </div>
+    <p-tabView>
+      <p-tabPanel [header]="'songs.tabs.content' | translate">
+        <div class="form-group row">
+          <div class="col-md-6 p-field">
+            <label for="title" [title]="'songs.fields.title' | translate">{{ 'songs.fields.title' | translate }}</label>
+            <input pInputText type="text" class="form-control" id="title" name="title" #title="ngModel" [(ngModel)]="song.title" required />
+          </div>
+          <div class="col-md-6 p-field">
+            <label for="songwriter" [title]="'songs.fields.songwriter' | translate">{{ 'songs.fields.songwriter' | translate }}</label>
+            <input pInputText type="text" class="form-control" id="songwriter" name="songwriter" #songwriter="ngModel" [(ngModel)]="song.songwriter">
+          </div>
+        </div>
+      </p-tabPanel>
+      <p-tabPanel [header]="'songs.tabs.verses' | translate">
+        <ul class="list-group list-group-flush verses">
+          <li class="list-group-item" *ngFor="let verse of song.verses">
+            <div class="row">
+              <div class="col-md-3">
+                <p-dropdown [options]="verseTypeOptions" [(ngModel)]="verse.verseType" [ngModelOptions]="{standalone: true}"></p-dropdown>
+              </div>
+              <div class="col-md-9">
+                <p class="verse-text" [contenteditable]="true" unformattedPaste propValueAccessor="innerHTML" name="verseText" [(ngModel)]="verse.text" [ngModelOptions]="{standalone: true}"></p>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item text-end">
+            <button pButton icon="pi pi-plus" type="button" iconPos="left" [label]="'actions.add' | translate" class="p-button-primary p-button-sm" (click)="handleAddVerse()"></button>
+          </li>
+        </ul>
+      </p-tabPanel>
+      <p-tabPanel [header]="'songs.tabs.chords' | translate">
 
-    <div class="form-group row">
-      <div class="col-md-6 p-field">
-        <label for="title" [title]="'songs.fields.title' | translate">{{ 'songs.fields.title' | translate }}</label>
-        <input pInputText type="text" class="form-control" id="title" name="title" #title="ngModel" [(ngModel)]="song.title" required />
-      </div>
-      <div class="col-md-6 p-field">
-        <label for="songwriter" [title]="'songs.fields.songwriter' | translate">{{ 'songs.fields.songwriter' | translate }}</label>
-        <input pInputText type="text" class="form-control" id="songwriter" name="songwriter" #songwriter="ngModel" [(ngModel)]="song.songwriter">
-      </div>
-    </div>
+      </p-tabPanel>
+    </p-tabView>
+
   </form>
+  <div class="toolbar mt-2" role="toolbar">
+    <div class="group">
+      <button pButton icon="pi pi-chevron-left" iconPos="left" [label]="'actions.cancel' | translate" class="p-button-secondary p-button-sm" (click)="handleCancel()"></button>
+      <button pButton icon="pi pi-check" iconPos="left" [label]="'actions.save' | translate" class="p-button-success p-button-sm" (click)="handleSave()"></button>
+    </div>
+  </div>
 </div>

@@ -19,16 +19,14 @@ export class SongsService {
   }
 
   async save(song: Song): Promise<Song> {
-    let newSong = this.songsRepository.create(song);
-    return this.songsRepository.save(newSong);
+    const record = this.songsRepository.create(song);
+    return this.songsRepository.save(record);
   }
 
-  async update(id: number, song: Song): Promise<UpdateResult> {
-    // TODO: Update other properties
-    return this.songsRepository.update(id, {
-      title: song.title,
-      songwriter: song.songwriter
-    });
+  async update(id: number, song: Song): Promise<Song> {
+    const record = await this.songsRepository.findOne(id);
+    this.songsRepository.merge(record, song);
+    return this.songsRepository.save(record);
   }
 
   async delete(id: number): Promise<DeleteResult> {

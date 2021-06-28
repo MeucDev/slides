@@ -1,7 +1,9 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Song } from "src/app/models";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { SelectItem } from 'primeng/api/selectitem';
+import { Observable } from 'rxjs';
+import { Song, Verse } from 'src/app/models';
+import { VerseType, VerseTypeUtils } from 'src/app/models/verse-type.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +14,21 @@ export class SongsService {
   public getDefault(): Song {
     return {
       title: '',
-      verses: [],
-      songVerses: []
+      verses: [
+        this.getDefaultVerse()
+      ]
     };
+  }
+
+  public getDefaultVerse(songId?: number): Verse {
+    return {
+      songId: songId,
+      verseType: VerseType.Unknown
+    };
+  }
+
+  public getVerseTypeOptions(): SelectItem[] {
+    return VerseTypeUtils.toSelectItemArray();
   }
 
   public getAll(): Observable<Song[]> {

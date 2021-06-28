@@ -1,5 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, OneToMany } from 'typeorm';
-import { SongVerse } from './song-verse.entity';
+import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, OneToMany, JoinTable, AfterLoad } from 'typeorm';
 import { Verse } from './verse.entity';
 
 @Entity('songs')
@@ -19,9 +18,13 @@ export class Song {
   @UpdateDateColumn()
   dateUpdated: Date;
 
-  @OneToMany(() => Verse, verse => verse.song, { cascade: [ 'insert', 'update', 'remove' ] })
+  @OneToMany(() => Verse, verse => verse.song, { cascade: true })
   verses: Verse[];
 
-  @OneToMany(() => SongVerse, songVerse => songVerse.song, { cascade: [ 'insert', 'update', 'remove' ] })
-  songVerses: SongVerse[];
+  @AfterLoad()
+  public orderVerses() {
+    if (this.verses) {
+      this.verses = this.verses.sort((v1: Verse, v2: Verse) => v1.order - v2.order);
+    }
+  }
 }

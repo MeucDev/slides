@@ -1,5 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
-import { SongVerse } from './song-verse.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { Song } from './song.entity';
 import { VerseType } from './verse-type.enum';
 
@@ -31,10 +30,17 @@ export class Verse {
   })
   verseType: VerseType;
 
+  @Column({
+    type: 'int',
+    nullable: false,
+    default: 0
+  })
+  order: number;
+
   @ManyToOne(() => Song, song => song.verses, { nullable: false })
   @JoinColumn({ name: 'songId' })
   song: Song;
 
-  @OneToMany(() => SongVerse, songVerse => songVerse.verse, { nullable: false })
-  songVerses: SongVerse[];
+  @Column({ type: 'int', nullable: false })
+  songId: number;
 }

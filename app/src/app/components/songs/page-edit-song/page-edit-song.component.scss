@@ -1,1 +1,7 @@
 @import './../../../../assets/scss/toolbar';
+@import './../../../../assets/scss/form';
+
+.verses .verse-text {
+  white-space: pre-wrap;
+  margin-bottom: 0;
+}

@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
-import { Song } from 'src/app/models';
+import { SelectItem } from 'primeng/api/selectitem';
+import { Song, Verse } from 'src/app/models';
 import { SongsService } from '../songs.service';
 
 @Component({
@@ -13,6 +14,8 @@ export class PageEditSongComponent implements OnInit {
 
   public id: number;
   public song: Song;
+
+  public verseTypeOptions: SelectItem[];
 
   @ViewChild('songForm', { static: false }) form!: NgForm;
   validated: boolean;
@@ -26,6 +29,7 @@ export class PageEditSongComponent implements OnInit {
   ) {
     this.id = 0;
     this.song = this.songsService.getDefault();
+    this.verseTypeOptions = this.songsService.getVerseTypeOptions();
     this.validated = false;
     this.ongoingApiCall = false;
   }
@@ -40,7 +44,10 @@ export class PageEditSongComponent implements OnInit {
   loadData() {
     if (this.id !== 0) {
       this.songsService.get(this.id)
-        .subscribe(song => { this.song = song; });
+        .subscribe(song => {
+          song.verses.forEach(this.formatVerseLyricsToHTML);
+          this.song = song;
+        });
     }
   }
 
@@ -50,6 +57,9 @@ export class PageEditSongComponent implements OnInit {
 
       updatedSong.title = this.form.controls.title.value;
       updatedSong.songwriter = this.form.controls.songwriter.value;
+
+      updatedSong.verses.forEach(this.formatVerseLyrics);
+      updatedSong.verses.forEach((v: Verse, i: number) => v.order = i);
 
       this.ongoingApiCall = true;
       if (this.id == 0) {
@@ -78,6 +88,18 @@ export class PageEditSongComponent implements OnInit {
 
   handleCancel() {
     this.router.navigate(['/songs']);
+  }
+
+  handleAddVerse() {
+    this.song.verses.push(this.songsService.getDefaultVerse(this.song.id));
+  }
+
+  private formatVerseLyrics(verse: Verse) {
+    verse.text = verse.text?.replace(/<\s*\/?br\s*[\/]?>/gi, '\n');
+  }
+
+  private formatVerseLyricsToHTML(verse: Verse) {
+    verse.text = verse.text?.replace('\n', '<br/>');
   }
 }
 
