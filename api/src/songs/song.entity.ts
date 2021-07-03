@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, OneToMany, JoinTable, AfterLoad } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, OneToMany, AfterLoad } from 'typeorm';
 import { Verse } from './verse.entity';
 
 @Entity('songs')

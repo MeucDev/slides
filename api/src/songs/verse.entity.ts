@@ -37,10 +37,10 @@ export class Verse {
   })
   order: number;
 
-  @ManyToOne(() => Song, song => song.verses, { nullable: false })
-  @JoinColumn({ name: 'songId' })
+  @ManyToOne(() => Song, song => song.verses, { orphanedRowAction: 'delete' })
+  @JoinColumn({ name: 'songId', referencedColumnName: 'id' })
   song: Song;
 
-  @Column({ type: 'int', nullable: false })
+  @Column({ type: 'int' })
   songId: number;
 }

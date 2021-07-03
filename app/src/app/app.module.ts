@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -49,6 +50,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
     ContenteditableModule,
     FormsModule,
+    DragDropModule,
     ButtonModule,
     DropdownModule,
     TableModule,

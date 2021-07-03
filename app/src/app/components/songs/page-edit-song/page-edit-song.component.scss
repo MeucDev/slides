@@ -2,9 +2,17 @@
 @import './../../../../assets/scss/toolbar';
 @import './../../../../assets/scss/form';
 
-.verses .verse-text {
-  white-space: pre-wrap;
-  margin-bottom: 0;
+.verses {
+  .verse-text {
+    white-space: pre-wrap;
+    margin-bottom: 0;
+  }
+
+  .actions {
+    button {
+      margin-bottom: 0.375em;
+    }
+  }
 }
 
 .chords {

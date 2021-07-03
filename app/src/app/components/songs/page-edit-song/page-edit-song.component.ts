@@ -1,3 +1,4 @@
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -94,6 +95,21 @@ export class PageEditSongComponent implements OnInit {
     this.song.verses.push(this.songsService.getDefaultVerse(this.song.id));
   }
 
+  handleReorderVerses(event: CdkDragDrop<Verse[]>) {
+    const element = this.song.verses[event.previousIndex];
+    this.song.verses.splice(event.previousIndex, 1);
+    this.song.verses.splice(event.currentIndex, 0, element);
+  }
+
+  handleDuplicateVerse(index: number) {
+    const element = this.cloneVerse(this.song.verses[index]);
+    this.song.verses.splice(index, 0, element);
+  }
+
+  handleRemoveVerse(index: number) {
+    this.song.verses.splice(index, 1);
+  }
+
   br2nl(str?: string): string | undefined {
     if (!str) return undefined;
 
@@ -106,6 +122,14 @@ export class PageEditSongComponent implements OnInit {
 
   private formatVerseLyricsToHTML(verse: Verse) {
     verse.text = verse.text?.replace('\n', '<br/>');
+  }
+
+  private cloneVerse(verse: Verse): Verse {
+    const newVerse = this.songsService.getDefaultVerse(this.song.id);
+    newVerse.text = verse.text;
+    newVerse.chords = verse.chords;
+    newVerse.verseType = verse.verseType;
+    return newVerse;
   }
 }
 

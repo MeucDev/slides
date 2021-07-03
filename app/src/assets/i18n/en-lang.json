@@ -7,7 +7,8 @@
     "manage": "Manage",
     "save": "Save",
     "cancel": "Cancel",
-    "search": "Search"
+    "search": "Search",
+    "duplicate": "Duplicate"
   },
   "home": {
     "title": "Home"

@@ -18,14 +18,21 @@
         </div>
       </p-tabPanel>
       <p-tabPanel [header]="'songs.tabs.verses' | translate">
-        <ul class="list-group list-group-flush verses">
-          <li class="list-group-item" *ngFor="let verse of song.verses">
+        <ul cdkDropList class="list-group list-group-flush verses" (cdkDropListDropped)="handleReorderVerses($event)">
+          <li cdkDrag class="list-group-item" *ngFor="let verse of song.verses; index as i">
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-auto" cdkDragHandle>
+                <i class="pi pi-sort-alt"></i>
+              </div>
+              <div class="col-3">
                 <p-dropdown [options]="verseTypeOptions" [(ngModel)]="verse.verseType" [ngModelOptions]="{standalone: true}"></p-dropdown>
               </div>
-              <div class="col-md-9">
+              <div class="col">
                 <p class="verse-text" [contenteditable]="true" unformattedPaste propValueAccessor="innerHTML" name="verseText" [(ngModel)]="verse.text" [ngModelOptions]="{standalone: true}"></p>
+              </div>
+              <div class="col-md-auto actions d-flex flex-column align-items-end">
+                <button pButton icon="pi pi-clone" type="button" [title]="'actions.duplicate' | translate" class="p-button-secondary p-button-sm" (click)="handleDuplicateVerse(i)"></button>
+                <button pButton icon="pi pi-trash" type="button" [title]="'actions.remove' | translate" class="p-button-danger p-button-sm" (click)="handleRemoveVerse(i)"></button>
               </div>
             </div>
           </li>
