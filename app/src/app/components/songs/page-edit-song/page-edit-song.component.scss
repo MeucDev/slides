@@ -1,7 +1,36 @@
+@import './../../../../assets/scss/variables';
 @import './../../../../assets/scss/toolbar';
 @import './../../../../assets/scss/form';
 
 .verses .verse-text {
   white-space: pre-wrap;
   margin-bottom: 0;
+}
+
+.chords {
+  .list-group-item {
+    position: relative;
+    font-family: $font-mono;
+
+    .verse-text {
+      padding: 0.375rem 0.75rem;
+      margin-top: 1.5em;
+      margin-bottom: 0;
+      line-height: 3em;
+      white-space: pre-wrap;
+      opacity: 0.5;
+    }
+
+    .chords-text {
+      position: absolute;
+      top: 1em;
+      bottom: 1em;
+      padding: 0 0.75rem 0.75rem 0.75rem;
+      white-space: pre-wrap;
+      margin-bottom: 0;
+      line-height: 3em;
+      background: transparent;
+      overflow: hidden;
+    }
+  }
 }

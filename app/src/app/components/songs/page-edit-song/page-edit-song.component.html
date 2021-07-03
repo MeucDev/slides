@@ -35,7 +35,12 @@
         </ul>
       </p-tabPanel>
       <p-tabPanel [header]="'songs.tabs.chords' | translate">
-
+        <ul class="list-group list-group-flush chords">
+          <li class="list-group-item" *ngFor="let verse of song.verses">
+            <p class="verse-text">{{ br2nl(verse.text) }}</p>
+            <p class="chords-text" [contenteditable]="true" unformattedPaste propValueAccessor="innerHTML" name="chordsText" [(ngModel)]="verse.chords" [ngModelOptions]="{standalone: true}"></p>
+          </li>
+        </ul>
       </p-tabPanel>
     </p-tabView>
 

@@ -58,7 +58,7 @@ export class PageEditSongComponent implements OnInit {
       updatedSong.title = this.form.controls.title.value;
       updatedSong.songwriter = this.form.controls.songwriter.value;
 
-      updatedSong.verses.forEach(this.formatVerseLyrics);
+      updatedSong.verses.forEach(v => this.formatVerseLyrics(v));
       updatedSong.verses.forEach((v: Verse, i: number) => v.order = i);
 
       this.ongoingApiCall = true;
@@ -94,8 +94,14 @@ export class PageEditSongComponent implements OnInit {
     this.song.verses.push(this.songsService.getDefaultVerse(this.song.id));
   }
 
+  br2nl(str?: string): string | undefined {
+    if (!str) return undefined;
+
+    return str.replace(/<\s*\/?br\s*[\/]?>/gi, '\n');
+  }
+
   private formatVerseLyrics(verse: Verse) {
-    verse.text = verse.text?.replace(/<\s*\/?br\s*[\/]?>/gi, '\n');
+    verse.text = this.br2nl(verse.text);
   }
 
   private formatVerseLyricsToHTML(verse: Verse) {
