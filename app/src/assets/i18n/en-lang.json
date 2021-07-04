@@ -25,5 +25,9 @@
       "title": "Title",
       "songwriter": "Songwriter"
     }
+  },
+  "sessions": {
+    "title": "Sessions",
+    "description": "Plan, start or join a presentation session."
   }
 }
