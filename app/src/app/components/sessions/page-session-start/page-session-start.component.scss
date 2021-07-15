@@ -1,0 +1,53 @@
+@use 'sass:map';
+
+@import '../../../../assets/scss/variables.scss';
+
+$background-color: (
+  '1': #222227,
+  '2': #2d2d34,
+  '3': #43434e
+);
+
+$foreground-color: (
+  '1': white,
+  '2': #ababae,
+  '3': #818185
+);
+
+$block-out-margin: calc(var(--bs-gutter-x) / 2);
+$block-in-margin: 1rem;
+$text-margin: 0.5rem;
+
+.session {
+  min-height: 100vh;
+  background-color: map.get($background-color, '1');
+  color: map.get($foreground-color, '3');
+  font-family: $font;
+  font-size: 14px;
+
+  .col {
+    min-height: 100vh;
+
+    &.center {
+      padding: 0;
+    }
+
+    .block {
+      padding: $block-in-margin;
+      margin: $block-out-margin 0;
+      background-color: map.get($background-color, '2');
+
+      & + .block {
+        margin-top: 0;
+      }
+
+      .header {
+        margin: (-$block-in-margin) (-$block-in-margin) $text-margin (-$block-in-margin);
+        padding: $text-margin $block-in-margin;
+        background-color: map.get($background-color, '3');
+        color: map.get($foreground-color, '2');
+        font-weight: 600;
+      }
+    }
+  }
+}

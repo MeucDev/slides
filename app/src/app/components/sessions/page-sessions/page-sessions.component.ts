@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { Song } from 'src/app/models';
 
 @Component({
   templateUrl: './page-sessions.component.html',
@@ -8,11 +6,4 @@ import { Song } from 'src/app/models';
 })
 export class PageSessionsComponent {
 
-  public songs: Song[];
-
-  constructor(
-    private readonly router: Router,
-  ) {
-    this.songs = [];
-  }
 }

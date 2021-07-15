@@ -28,6 +28,10 @@
   },
   "sessions": {
     "title": "Sessions",
-    "description": "Plan, start or join a presentation session."
+    "description": "Plan, start or join a presentation session.",
+    "actions": {
+      "start": "Start",
+      "start-description": "Start a session from scratch. You can start presenting, share your code or save what you've build for later."
+    }
   }
 }
