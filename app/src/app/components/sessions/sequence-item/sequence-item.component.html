@@ -1,0 +1,13 @@
+<li class="sequence-item">
+  <span class="comment" *ngIf="comment">{{ comment }}</span>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="text">
+      <h4 class="title" *ngIf="title">{{ title }}</h4>
+      <span class="subtitle" *ngIf="subtitle">{{ subtitle }}</span>
+    </div>
+    <ul class="actions col-auto d-flex">
+      <li><img src="../../../../assets/images/edit-icon.svg" /></li>
+      <li><img src="../../../../assets/images/play-icon.svg" /></li>
+    </ul>
+  </div>
+</li>

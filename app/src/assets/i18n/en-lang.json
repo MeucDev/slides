@@ -32,6 +32,23 @@
     "actions": {
       "start": "Start",
       "start-description": "Start a session from scratch. You can start presenting, share your code or save what you've build for later."
+    },
+    "blocks": {
+      "menu": {
+        "title": "Menu"
+      },
+      "add": {
+        "title": "Add"
+      },
+      "sequence": {
+        "title": "Sequence"
+      },
+      "selection": {
+        "title": "Selection"
+      },
+      "preview": {
+        "title": "Preview"
+      }
     }
   }
 }

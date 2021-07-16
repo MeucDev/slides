@@ -3,7 +3,7 @@
     <div class="col d-flex flex-column align-items-stretch">
       <div class="block flex-fill menu">
         <div class="header">
-          Menu
+          {{ 'sessions.blocks.menu.title' | translate }}
         </div>
         <div class="content">
           Back, save, load, share, user settings (theme), change style (presentation)
@@ -11,7 +11,7 @@
       </div>
       <div class="block flex-fill add">
         <div class="header">
-          Add
+          {{ 'sessions.blocks.add.title' | translate }}
         </div>
         <div class="content add-menu row row-cols-lg-3 g-lg-3">
           <div class="col">
@@ -32,17 +32,22 @@
     <div class="col d-flex flex-column align-items-stretch center">
       <div class="block flex-fill sequence">
         <div class="header">
-          Sequence
+          {{ 'sessions.blocks.sequence.title' | translate }}
         </div>
-        <div class="content">
-          Song 1, Song 2, Other part, Song 3
-        </div>
+        <ul class="content">
+          <sequence-item title="Teu amor é incrível" subtitle="Vineyard"></sequence-item>
+          <sequence-item comment="Introdução"></sequence-item>
+          <sequence-item comment="Avisos"></sequence-item>
+          <sequence-item title="Cantarei Teu Amor" subtitle="David Quinlan"></sequence-item>
+          <sequence-item comment="Palestra" subtitle="Dionei de Liz"></sequence-item>
+          <sequence-item title="Castelo Forte" subtitle="Martinho Lutero"></sequence-item>
+        </ul>
       </div>
     </div>
     <div class="col d-flex flex-column align-items-stretch">
       <div class="block flex-fill selection">
         <div class="header">
-          Selection
+          {{ 'sessions.blocks.selection.title' | translate }}
         </div>
         <div class="content">
           Verse 1, Verse 2, Chorus, Bridge, Chorus
@@ -50,7 +55,7 @@
       </div>
       <div class="block flex-fill preview">
         <div class="header">
-          Preview
+          {{ 'sessions.blocks.preview.title' | translate }}
         </div>
         <div class="content">
           A preview of the presentation

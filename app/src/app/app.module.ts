@@ -18,7 +18,8 @@ import { ContenteditableModule } from '@ng-stack/contenteditable';
 
 import { appRoutes, pagesComponents } from './app.routes';
 import { AppComponent } from './app.component';
-import { TopMenuComponent } from './components/home/top-menu/top-menu.component';
+import { TopMenuComponent } from './components/home';
+import { SequenceItemComponent } from './components/sessions';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '-lang.json');
@@ -28,6 +29,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   declarations: [
     AppComponent,
     TopMenuComponent,
+    SequenceItemComponent,
     ...pagesComponents,
   ],
   imports: [

@@ -1,0 +1,18 @@
+@use 'sass:map';
+
+$background-color: (
+  '1': #222227,
+  '2': #2d2d34,
+  '3': #35353e,
+  '4': #43434e
+);
+
+$foreground-color: (
+  '1': white,
+  '2': #ababae,
+  '3': #818185
+);
+
+$out-margin: calc(var(--bs-gutter-x) / 2);
+$in-margin: 1rem;
+$text-margin: 0.5rem;
