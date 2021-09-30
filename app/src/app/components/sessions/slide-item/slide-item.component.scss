@@ -1,0 +1,49 @@
+@use 'sass:map';
+
+@import '../../../../assets/scss/session-variables.scss';
+
+.slide-item {
+  margin-bottom: $in-margin;
+  color: map.get($foreground-color, '3');
+  border-left-color: map.get($foreground-color, '3');
+
+  &.selected {
+    color: map.get($foreground-color, '2');
+    border-left-color: map.get($foreground-color, '2');
+
+    .title,
+    .subtitle,
+    .blank {
+      border-left-width: 1rem;
+    }
+  }
+
+  .comment {
+    display: block;
+    padding-left: $in-margin;
+    font-size: 1em;
+    font-style: italic;
+    opacity: 0.7;
+  }
+
+  .line,
+  .title,
+  .subtitle,
+  .blank {
+    display: block;
+    font-size: 1.6em;
+    padding: 0 0 0 0.6rem;
+    border-left-style: solid;
+    border-left-width: 0.3rem;
+
+    &.selected {
+      border-left-width: 1rem;
+    }
+  }
+
+  .title { font-size: 2em; }
+  .subtitle { font-size: 1.1em; }
+  .blank {
+    height: 1.5em;
+  }
+}

@@ -1,63 +1,69 @@
 <div class="container-fluid">
   <div class="row session">
     <div class="col d-flex flex-column align-items-stretch">
-      <div class="block flex-fill menu">
+      <div id="menu" class="block">
         <div class="header">
           {{ 'sessions.blocks.menu.title' | translate }}
         </div>
-        <div class="content">
+        <div class="flex-fill content">
           Back, save, load, share, user settings (theme), change style (presentation)
         </div>
       </div>
-      <div class="block flex-fill add">
+      <div id="add" class="block flex-fill">
         <div class="header">
           {{ 'sessions.blocks.add.title' | translate }}
         </div>
-        <div class="content add-menu row row-cols-lg-3 g-lg-3">
-          <div class="col">
-            <div class="button">
-              <img src="../../../../assets/images/song-icon.svg" />
-              <span>Song</span>
+        <div class="flex-fill content-wrapper">
+          <div class="content add-menu row row-cols-lg-3 g-lg-3">
+            <div class="col">
+              <div class="button">
+                <img src="../../../../assets/images/song-icon.svg" />
+                <span>Song</span>
+              </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="button">
-              <img src="../../../../assets/images/warning-icon.svg" />
-              <span>Alert</span>
+            <div class="col">
+              <div class="button">
+                <img src="../../../../assets/images/warning-icon.svg" />
+                <span>Alert</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col d-flex flex-column align-items-stretch center">
-      <div class="block flex-fill sequence">
+      <div id="sequence" class="block flex-fill d-flex flex-column align-items-stretch">
         <div class="header">
           {{ 'sessions.blocks.sequence.title' | translate }}
         </div>
-        <ul class="content">
-          <sequence-item title="Teu amor é incrível" subtitle="Vineyard"></sequence-item>
-          <sequence-item comment="Introdução"></sequence-item>
-          <sequence-item comment="Avisos"></sequence-item>
-          <sequence-item title="Cantarei Teu Amor" subtitle="David Quinlan"></sequence-item>
-          <sequence-item comment="Palestra" subtitle="Dionei de Liz"></sequence-item>
-          <sequence-item title="Castelo Forte" subtitle="Martinho Lutero"></sequence-item>
-        </ul>
+        <div class="flex-fill content-wrapper">
+          <ul class="content">
+            <sequence-item title="Teu amor é incrível" subtitle="Vineyard"></sequence-item>
+            <sequence-item comment="Introdução"></sequence-item>
+            <sequence-item comment="Avisos"></sequence-item>
+            <sequence-item title="Cantarei Teu Amor" subtitle="David Quinlan"></sequence-item>
+            <sequence-item comment="Palestra" subtitle="Dionei de Liz"></sequence-item>
+            <sequence-item title="Castelo Forte" subtitle="Martinho Lutero"></sequence-item>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="col d-flex flex-column align-items-stretch">
-      <div class="block flex-fill selection">
+      <div id="selection" class="block flex-fill d-flex flex-column align-items-stretch">
         <div class="header">
           {{ 'sessions.blocks.selection.title' | translate }}
         </div>
-        <div class="content">
-          Verse 1, Verse 2, Chorus, Bridge, Chorus
+        <div class="flex-fill content-wrapper">
+          <ul class="content">
+            <slide-item *ngFor="let slide of loadedSequence?.slides; let i = index" [slide]="slide"></slide-item>
+          </ul>
         </div>
       </div>
-      <div class="block flex-fill preview">
+      <div id="preview" class="block">
         <div class="header">
           {{ 'sessions.blocks.preview.title' | translate }}
         </div>
-        <div class="content">
+        <div class="flex-fill content">
           A preview of the presentation
         </div>
       </div>

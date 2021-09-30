@@ -1,5 +1,6 @@
 @use 'sass:map';
 
+@import '../../../../assets/scss/fonts.scss';
 @import '../../../../assets/scss/variables.scss';
 @import '../../../../assets/scss/session-variables.scss';
 
@@ -26,7 +27,7 @@
       }
 
       .header {
-        margin: 0 0 $in-margin 0;
+        margin: 0;
         padding: $text-margin $in-margin;
         background-color: map.get($background-color, '4');
         color: map.get($foreground-color, '2');
@@ -34,10 +35,25 @@
       }
 
       .content {
-        padding: 0 $in-margin $in-margin $in-margin;
+        padding: $in-margin;
+        margin: 0 !important;
       }
 
-      &.add {
+      .content-wrapper {
+        height: 100%;
+        position: relative;
+
+        .content {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          overflow-y: auto;
+        }
+      }
+
+      &#add {
         .add-menu {
           .button {
             padding: $in-margin;

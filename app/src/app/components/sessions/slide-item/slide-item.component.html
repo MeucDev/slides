@@ -1,0 +1,19 @@
+<li
+  class="slide-item"
+  [class.selected]="slide?.selected !== undefined">
+  <span class="comment" *ngIf="slide?.comment">{{ slide?.comment }}</span>
+  <ng-template [ngIf]="slide?.type == 'Lyrics'">
+    <div *ngFor="let line of slideLines; let i = index"
+      class="line"
+      [class.selected]="slide?.selected == i">
+      {{ line }}
+    </div>
+  </ng-template>
+  <ng-template [ngIf]="slide?.type == 'Title'">
+    <div class="title" *ngIf="slide?.text">{{ slide?.text }}</div>
+    <span class="subtitle" *ngIf="slide?.subtitle">{{ slide?.subtitle }}</span>
+  </ng-template>
+  <ng-template [ngIf]="slide?.type == 'Blank' || slide?.type == ''">
+    <div class="blank"></div>
+  </ng-template>
+</li>
