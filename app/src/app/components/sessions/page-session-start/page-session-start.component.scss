@@ -52,29 +52,15 @@
           overflow-y: auto;
         }
       }
-
-      &#add {
-        .add-menu {
-          .button {
-            padding: $in-margin;
-            background-color: map.get($background-color, '3');
-            text-align: center;
-
-            img {
-              width: auto;
-              max-height: 50px;
-              opacity: 0.6;
-            }
-
-            span {
-              display: block;
-              margin-top: $in-margin;
-              font-size: 1.2em;
-              line-height: 1em;
-            }
-          }
-        }
-      }
     }
+  }
+}
+
+::ng-deep {
+  button {
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    color: inherit;
   }
 }

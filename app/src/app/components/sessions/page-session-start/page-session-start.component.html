@@ -9,25 +9,12 @@
           Back, save, load, share, user settings (theme), change style (presentation)
         </div>
       </div>
-      <div id="add" class="block flex-fill">
+      <div id="add" class="block flex-fill d-flex flex-column align-items-stretch">
         <div class="header">
           {{ 'sessions.blocks.add.title' | translate }}
         </div>
         <div class="flex-fill content-wrapper">
-          <div class="content add-menu row row-cols-lg-3 g-lg-3">
-            <div class="col">
-              <div class="button">
-                <img src="../../../../assets/images/song-icon.svg" />
-                <span>Song</span>
-              </div>
-            </div>
-            <div class="col">
-              <div class="button">
-                <img src="../../../../assets/images/warning-icon.svg" />
-                <span>Alert</span>
-              </div>
-            </div>
-          </div>
+          <add-menu></add-menu>
         </div>
       </div>
     </div>

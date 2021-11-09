@@ -1,0 +1,27 @@
+<div class="add-menu">
+  <div *ngIf="!tab" class="menu row row-cols-lg-3 g-lg-3">
+    <div class="col">
+      <button class="button" (click)="setTab('song')">
+        <img src="../../../../assets/images/song-icon.svg" />
+        <span>Song</span>
+      </button>
+    </div>
+    <div class="col">
+      <button class="button" (click)="setTab('alert')">
+        <img src="../../../../assets/images/warning-icon.svg" />
+        <span>Alert</span>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="tab" class="tabs">
+    <div class="header">
+      <button (click)="setTab('')">Back</button>
+    </div>
+    <div *ngIf="tab === 'song'" class="tab add-song">
+      Song
+    </div>
+    <div *ngIf="tab === 'alert'" class="tab add-alert">
+      Alert
+    </div>
+  </div>
+</div>
