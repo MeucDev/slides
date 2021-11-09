@@ -38,12 +38,7 @@
         </div>
         <div class="flex-fill content-wrapper">
           <ul class="content">
-            <sequence-item title="Teu amor é incrível" subtitle="Vineyard"></sequence-item>
-            <sequence-item comment="Introdução"></sequence-item>
-            <sequence-item comment="Avisos"></sequence-item>
-            <sequence-item title="Cantarei Teu Amor" subtitle="David Quinlan"></sequence-item>
-            <sequence-item comment="Palestra" subtitle="Dionei de Liz"></sequence-item>
-            <sequence-item title="Castelo Forte" subtitle="Martinho Lutero"></sequence-item>
+            <sequence-item *ngFor="let sequence of loadedSession; let i = index" [id]="sequence.id" [title]="sequence.title" [subtitle]="sequence.subtitle" [comment]="sequence.comment"></sequence-item>
           </ul>
         </div>
       </div>

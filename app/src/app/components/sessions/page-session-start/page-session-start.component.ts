@@ -7,9 +7,38 @@ import { SlideSequence, SlideType } from 'src/app/models';
 })
 export class PageSessionStartComponent {
 
+  loadedSession?: SlideSequence[];
   loadedSequence?: SlideSequence;
 
   constructor(){
+    this.loadedSession = [
+      {
+        id: 162,
+        title: 'Cantarei Teu amor',
+        subtitle: 'Vineyard'
+      },
+      {
+        comment: 'Introdução'
+      },
+      {
+        comment: 'Avisos'
+      },
+      {
+        id: 2,
+        title: 'Teu amor é incrível',
+        subtitle: 'Vineyard'
+      },
+      {
+        subtitle: 'Dionei de Liz',
+        comment: 'Palestra'
+      },
+      {
+        id: 75,
+        title: 'Castelo Forte',
+        subtitle: 'Martinho Lutero'
+      }
+    ];
+
     this.loadedSequence = {
       id: 162,
       title: 'Cantarei Teu amor',

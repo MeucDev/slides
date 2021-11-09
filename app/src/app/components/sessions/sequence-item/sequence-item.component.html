@@ -5,7 +5,7 @@
       <h4 class="title" *ngIf="title">{{ title }}</h4>
       <span class="subtitle" *ngIf="subtitle">{{ subtitle }}</span>
     </div>
-    <ul class="actions col-auto d-flex">
+    <ul *ngIf="id" class="actions col-auto d-flex">
       <li><img src="../../../../assets/images/edit-icon.svg" /></li>
       <li><img src="../../../../assets/images/play-icon.svg" /></li>
     </ul>

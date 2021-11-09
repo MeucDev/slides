@@ -4,5 +4,6 @@ export class SlideSequence {
   id?: number;
   title?: string;
   subtitle?: string;
-  slides: Slide[] = [];
+  comment?: string;
+  slides?: Slide[] = [];
 }

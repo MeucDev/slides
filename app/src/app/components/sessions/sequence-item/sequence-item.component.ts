@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./sequence-item.component.scss']
 })
 export class SequenceItemComponent {
+  @Input() id?: number;
   @Input() title?: string;
   @Input() subtitle?: string;
   @Input() comment?: string;
