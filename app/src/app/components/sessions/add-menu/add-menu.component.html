@@ -18,7 +18,20 @@
       <button (click)="setTab('')">Back</button>
     </div>
     <div *ngIf="tab === 'song'" class="tab add-song">
-      Song
+      <form class="search input-group mb-3" (submit)="search()">
+        <input type="text" class="form-control" placeholder="Search song..." name="songSearchText" [(ngModel)]="songSearchText">
+        <button class="btn" type="submit">Search</button>
+      </form>
+      <ul class="songs">
+        <li *ngFor="let s of songSearchResult">
+          <div class="title">
+            <h5>{{ s.title }}</h5>
+            <h6>{{ s.subtitle }}</h6>
+            <button (click)="addSequence(s)">+</button>
+          </div>
+          <p>{{ s.slidePreview() }}</p>
+        </li>
+      </ul>
     </div>
     <div *ngIf="tab === 'alert'" class="tab add-alert">
       Alert

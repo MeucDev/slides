@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeleteResult, Repository } from 'typeorm';
+import { DeleteResult, ILike, Repository } from 'typeorm';
 import { Song } from './song.entity';
 
 @Injectable()
@@ -16,6 +16,16 @@ export class SongsService {
 
   async findOne(id: number): Promise<Song> {
     return this.songsRepository.findOne(id, { relations: [ "verses" ] });
+  }
+
+  async search(query: string): Promise<Song[]> {
+    return this.songsRepository
+      .find({
+        where: {
+          title: ILike(`%${query}%`)
+        },
+        relations: [ "verses" ]
+      });
   }
 
   async save(song: Song): Promise<Song> {

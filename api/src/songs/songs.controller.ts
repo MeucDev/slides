@@ -1,8 +1,12 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { DeleteResult, UpdateResult } from 'typeorm';
+import { DeleteResult } from 'typeorm';
 import { Song } from './song.entity';
 import { SongsService } from './songs.service';
+
+interface SongSearchPayload {
+  query: string;
+}
 
 @ApiTags('songs')
 @Controller('songs')
@@ -17,6 +21,11 @@ export class SongsController {
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<Song> {
     return this.service.findOne(id);
+  }
+
+  @Post('search')
+  async search(@Body() queryPayload: SongSearchPayload): Promise<Song[]> {
+    return this.service.search(queryPayload.query);
   }
 
   @Post()

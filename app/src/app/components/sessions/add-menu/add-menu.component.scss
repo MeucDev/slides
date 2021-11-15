@@ -44,5 +44,60 @@
         display: inline-block;
       }
     }
+
+    .tab {
+      padding: $in-margin;
+
+      &.add-song {
+        .search {
+          input {
+            border: none;
+            background-color: map.get($background-color, '4');
+            color: map.get($foreground-color, '2');
+          }
+
+          button {
+            border-left: 1px solid map.get($background-color, '2');
+            background-color: map.get($background-color, '4');
+            color: map.get($foreground-color, '2');
+          }
+        }
+
+        .songs {
+          padding-left: 0;
+          margin-top: $in-margin;
+
+          li {
+            min-height: 1.5em;
+            padding: 0.1rem 0 0.1rem 0.6rem;
+            border-left-style: solid;
+            border-left-width: 0.3rem;
+            border-left-color: map.get($foreground-color, '3');
+
+            .title {
+              position: relative;
+              padding-right: 3em;
+
+              button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: $text-margin $in-margin;
+                background-color: map.get($background-color, '4');
+                color: map.get($foreground-color, '2');
+              }
+            }
+
+            p {
+              margin-bottom: 0;
+            }
+
+            & + li {
+              margin-top: $in-margin;
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -12,31 +12,31 @@ export class PageSessionStartComponent {
 
   constructor(){
     this.loadedSession = [
-      {
+      new SlideSequence().init({
         id: 162,
         title: 'Cantarei Teu amor',
         subtitle: 'Vineyard'
-      },
-      {
+      }),
+      new SlideSequence().init({
         comment: 'Introdução'
-      },
-      {
+      }),
+      new SlideSequence().init({
         comment: 'Avisos'
-      },
-      {
+      }),
+      new SlideSequence().init({
         id: 2,
         title: 'Teu amor é incrível',
         subtitle: 'Vineyard'
-      },
-      {
+      }),
+      new SlideSequence().init({
         subtitle: 'Dionei de Liz',
         comment: 'Palestra'
-      },
-      {
+      }),
+      new SlideSequence().init({
         id: 75,
         title: 'Castelo Forte',
         subtitle: 'Martinho Lutero'
-      }
+      })
     ];
 
     this.loadedSequence = {
@@ -80,5 +80,9 @@ export class PageSessionStartComponent {
         }
       ]
     } as SlideSequence;
+  }
+
+  public addSequenceItem(item: SlideSequence): void {
+    this.loadedSession?.push(item);
   }
 }

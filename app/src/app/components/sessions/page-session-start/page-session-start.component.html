@@ -14,7 +14,7 @@
           {{ 'sessions.blocks.add.title' | translate }}
         </div>
         <div class="flex-fill content-wrapper">
-          <add-menu></add-menu>
+          <add-menu (addItem)="addSequenceItem($event)"></add-menu>
         </div>
       </div>
     </div>
