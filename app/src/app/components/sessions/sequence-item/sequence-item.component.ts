@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'sequence-item',
@@ -10,4 +10,10 @@ export class SequenceItemComponent {
   @Input() title?: string;
   @Input() subtitle?: string;
   @Input() comment?: string;
+
+  @Output() load = new EventEmitter<void>();
+
+  public loadSong(): void {
+    this.load.emit();
+  }
 }

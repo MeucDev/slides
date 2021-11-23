@@ -7,7 +7,7 @@
     </div>
     <ul *ngIf="id" class="actions col-auto d-flex">
       <li><img src="../../../../assets/images/edit-icon.svg" /></li>
-      <li><img src="../../../../assets/images/play-icon.svg" /></li>
+      <button (click)="loadSong()"><li><img src="../../../../assets/images/play-icon.svg" /></li></button>
     </ul>
   </div>
 </li>

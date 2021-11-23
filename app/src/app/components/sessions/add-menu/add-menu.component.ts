@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { SlideSequence, SlideType } from 'src/app/models';
+import { SlideSequence } from 'src/app/models';
+import { SlideSequenceUtils } from 'src/app/utils';
 import { SongsService } from '../../songs/songs.service';
 
 @Component({
@@ -23,19 +24,7 @@ export class AddMenuComponent {
     this.songsService
       .search(this.songSearchText)
       .subscribe(songs => {
-        this.songSearchResult = songs.map(s => {
-          return new SlideSequence().init({
-            id: s.id,
-            title: s.title,
-            subtitle: s.songwriter,
-            slides: s.verses.map(v => {
-              return {
-                type: SlideType.Lyrics,
-                text: v.text
-              };
-            })
-          });
-        })
+        this.songSearchResult = songs.map(SlideSequenceUtils.convertFromSong)
       });
   }
 

@@ -25,7 +25,14 @@
         </div>
         <div class="flex-fill content-wrapper">
           <ul class="content">
-            <sequence-item *ngFor="let sequence of loadedSession; let i = index" [id]="sequence.id" [title]="sequence.title" [subtitle]="sequence.subtitle" [comment]="sequence.comment"></sequence-item>
+            <sequence-item
+              *ngFor="let sequence of loadedSession; let i = index"
+              [id]="sequence.id"
+              [title]="sequence.title"
+              [subtitle]="sequence.subtitle"
+              [comment]="sequence.comment"
+              (load)="loadSequenceIndex(i)">
+            </sequence-item>
           </ul>
         </div>
       </div>
@@ -37,7 +44,10 @@
         </div>
         <div class="flex-fill content-wrapper">
           <ul class="content">
-            <slide-item *ngFor="let slide of loadedSequence?.slides; let i = index" [slide]="slide"></slide-item>
+            <slide-item
+              *ngFor="let slide of loadedSequence?.slides; let i = index"
+              [slide]="slide">
+            </slide-item>
           </ul>
         </div>
       </div>

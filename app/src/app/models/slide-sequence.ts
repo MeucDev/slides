@@ -1,3 +1,4 @@
+import { SlideType } from '.';
 import { Slide } from './slide';
 
 export class SlideSequence {
@@ -16,7 +17,7 @@ export class SlideSequence {
     if (this.slides !== undefined &&
         this.slides !== null &&
         this.slides.length > 0) {
-      return this.slides[0].text ?? '';
+      return this.slides.find(s => s.type !== SlideType.Title && (s.text ?? '').length > 0)?.text ?? '';
     }
 
     return '';

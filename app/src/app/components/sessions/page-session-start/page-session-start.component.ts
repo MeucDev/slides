@@ -7,8 +7,8 @@ import { SlideSequence, SlideType } from 'src/app/models';
 })
 export class PageSessionStartComponent {
 
-  loadedSession?: SlideSequence[];
-  loadedSequence?: SlideSequence;
+  loadedSession: SlideSequence[];
+  loadedSequence: SlideSequence;
 
   constructor(){
     this.loadedSession = [
@@ -84,5 +84,11 @@ export class PageSessionStartComponent {
 
   public addSequenceItem(item: SlideSequence): void {
     this.loadedSession?.push(item);
+  }
+
+  public loadSequenceIndex(index: number): void {
+    if (index < this.loadedSession.length) {
+      this.loadedSequence = this.loadedSession[index];
+    }
   }
 }
